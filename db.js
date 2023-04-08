@@ -21,17 +21,29 @@ let sequelize = new Sequelize({
     logging: false, 
   });
   
-  const Users = sequelize.define("Users", {
+  const users = sequelize.define("users", {
     name: {
       type: Sequelize.TEXT,
+      allowNull: false,
     },
     username: {
         type: Sequelize.TEXT,
+        unique: true,
+        allowNull: false,
+    },
+    email: {
+        type: Sequelize.TEXT,
         primaryKey: true,
+        
+    },
+    budget: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
     },
     password: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
+        allowNull: false,
     },
   });
 
-  module.exports = {sequelize, Users}
+  module.exports = {sequelize, users}
