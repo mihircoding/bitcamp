@@ -25,6 +25,7 @@
         margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
+        border-radius: 15px;
         box-sizing: content-box;
       }
       button {
@@ -45,7 +46,9 @@
         background-color: #FFF;
         margin: auto; 
         text-align: center; 
-        width: 400px;
+        border-radius: 15px;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+        width: 50%;
       } 
       span.psw {
         float: none;
@@ -63,16 +66,16 @@
     <h1>Finance Login</h1>
     <div class="container">
       <form action="process-login.php" method="post">
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="username"><b>Enter Username or Email</b></label>
+        <input type="text" placeholder="Enter Username or Email" name="username" required>
 
-        <label for="password"><b>Password</b></label>
+        <label for="password"><b>Enter Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
         <button type="submit">Login</button>
       </form>
       <div class="text"></div>
-        <span class="psw"><a href="createacc.html">Sign Up</a> &emsp;</a>Forgot <a href="forgotpass.html">password?</a></span>
+        <span class="psw"><a href="createacc.html">Sign Up</a> &emsp; &emsp; </a><a href="forgotpass.html">Forgot password?</a></span>
       </div>
     </div>
   </body>
