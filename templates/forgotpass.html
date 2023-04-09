@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Finance Login</title>
+    <link rel="stylesheet" href="logintemplate.css">
+  </head>
+  <body>
+    <h1>Forgot Password?</h1>
+    <div class="container">
+      <form action="process-login.php" method="post">
+        <label for="email"><b>Email</b></label>
+        <input type="text" id="email" placeholder="Enter Email" name="email" required>
+
+        <button type="button" onclick="emailSent()">Send Email</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+                <h2>Email Sent</h2>
+            </div>
+        </div>
+      </form>
+      <div class="text"></div>
+        <span class="psw"><a href="createacc.html">Sign Up</a> &emsp; &emsp; </a><a href="login.html">Login</a></span>
+      </div>
+    </div>
+
+    <script>
+        function emailSent() {
+            var tabContent = document.getElementById("tab-content");
+            var email = document.getElementById("email");
+            if (email.value)
+              tabContent.style.display = "block";
+        }
+    </script>
+  </body>
+</html>

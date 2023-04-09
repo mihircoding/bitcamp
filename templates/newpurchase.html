@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Enter New Purchase</title>
+    <link rel="stylesheet" href="logintemplate.css">
+  </head>
+  <body>
+    <h1>Enter New Purchase</h1>
+    <div class="container">
+      <form action="process-login.php" method="post">
+        <label for="purchase"><b>Purchase Name</b></label>
+        <input type="text" placeholder="Enter Name of Purchase" name="purchase" required>
+
+        <label for="amount"><b>Purchase Amount</b></label>
+        <input type="text" placeholder="Enter Purchase Amount" name="amount" required>
+
+        <button type="button" onclick="purchaseAdded()">Add Purchase</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+                <h2>Purchase Added</h2>
+            </div>
+        </div>
+      </form>
+      <div class="text"></div>
+        <span class="psw"><a href="home.html">Return Home</a></span>
+      </div>
+    </div>
+
+    <script>
+        function purchaseAdded() {
+            var tabContent = document.getElementById("tab-content");
+            tabContent.style.display = "block";
+        }
+    </script>
+  </body>
+</html>

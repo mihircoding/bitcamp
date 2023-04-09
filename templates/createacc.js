@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const url = 'http://localhost:3000/api/signupsubmit';
+console.log('something')
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -16,8 +17,8 @@ form.addEventListener('submit', async (event) => {
   });
 
   if (response.status == 200) {
-    const data = await response.json();
-    console.log(data); // logs the response from the backend
+    accountCreated();
+
   }
   else if (response.status == 204){
     alert("you have an account already");
@@ -25,3 +26,10 @@ form.addEventListener('submit', async (event) => {
     alert("some error occured try again");
   }
 });
+
+function accountCreated() {
+  var tabContent = document.getElementById("tab-content");
+  var exists = document.getElementById("exists");
+  if (exists.value) 
+    tabContent.style.display = "block";
+}

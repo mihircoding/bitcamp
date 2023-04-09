@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="logintemplate.css">
+  </head>
+  <body>
+    <h1>Reset Password</h1>
+    <div class="container">
+      <form action="process-login.php" method="post">
+        <label for="new-password"><b>New Password</b></label>
+        <input type="text" id="password" placeholder="Enter Password" name="new-password" required>
+
+        <button type="button" onclick="passReset()">Send Email</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+                <h2>Password Reset</h2>
+            </div>
+        </div>
+      </form>
+      <div class="text"></div>
+        <span class="psw"><a href="createacc.html">Sign Up</a> &emsp; &emsp; </a><a href="login.html">Login</a></span>
+      </div>
+    </div>
+
+    <script>
+        function passReset() {
+            var tabContent = document.getElementById("tab-content");
+            var passExist = document.getElementById("password");
+                if (passExist.value)
+                    tabContent.style.display = "block";
+        }
+    </script>
+  </body>
+</html>
