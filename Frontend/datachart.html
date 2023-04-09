@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pie Chart Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="pieChart"></canvas>
+  <script>
+    // Assume this is the dynamic data received from the back-end code
+    var data = [
+      {label: "Category 1", value: 50},
+      {label: "Category 2", value: 30},
+      {label: "Category 3", value: 20},
+    ];
+
+    var labels = [];
+    var values = [];
+    var colors = [];
+
+    // Loop through the data and extract the labels, values, and colors
+    for (var i = 0; i < data.length; i++) {
+      labels.push(data[i].label);
+      values.push(data[i].value);
+      colors.push(getRandomColor());
+    }
+
+    // Create a new pie chart using Chart.js
+    var pieChart = new Chart(document.getElementById("pieChart"), {
+      type: "pie",
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: colors,
+        }]
+      },
+      options: {
+        responsive: true,
+      }
+    });
+
+    // Function to generate random colors
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+</html>
