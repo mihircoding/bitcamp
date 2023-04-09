@@ -110,8 +110,9 @@ def data_init(workbook):
 
 
 def gen_dict(df, title):
+    classes = 'items'
     return {'title': title,
-            'table': df.to_html(classes = 'itemTable')}
+            'table': df.to_html(classes = classes)}
 
 @app.route('/data')
 def display_data():
