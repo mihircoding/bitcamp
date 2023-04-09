@@ -2,20 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Finance Login</title>
+    <title>Reset Password</title>
     <link rel="stylesheet" href="logintemplate.css">
   </head>
   <body>
-    <h1>Forgot Password?</h1>
+    <h1>Reset Password</h1>
     <div class="container">
       <form action="process-login.php" method="post">
-        <label for="email"><b>Email</b></label>
-        <input type="text" id="email" placeholder="Enter Email" name="email" required>
+        <label for="new-password"><b>New Password</b></label>
+        <input type="text" id="password" placeholder="Enter Password" name="new-password" required>
 
-        <button type="button" onclick="emailSent()">Send Email</button>
+        <button type="button" onclick="passReset()">Send Email</button>
         <div id="tab-content" style="display: none;">
             <div class = "container">
-                <h2>Email Sent</h2>
+                <h2>Password Reset</h2>
             </div>
         </div>
       </form>
@@ -25,11 +25,11 @@
     </div>
 
     <script>
-        function emailSent() {
+        function passReset() {
             var tabContent = document.getElementById("tab-content");
-            var email = document.getElementById("email");
-            if (email.value)
-              tabContent.style.display = "block";
+            var passExist = document.getElementById("password");
+                if (passExist.value)
+                    tabContent.style.display = "block";
         }
     </script>
   </body>
