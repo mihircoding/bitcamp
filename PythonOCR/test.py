@@ -1,11 +1,9 @@
-from PIL import Image, ImageFilter
+from PIL import Image
 import pytesseract
 import numpy as np
 import xlsxwriter
 import cv2
 from cv2 import *
-from matplotlib import pyplot as plt
-from array import *
 import os
 import pandas as pd
 from flask import Flask, request
