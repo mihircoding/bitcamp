@@ -4,9 +4,11 @@ console.log('something')
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+  console.log('efqefqeg')
 
   const formData = new FormData(form);
   const body = new URLSearchParams(formData).toString();
+  console.log(body);
 
   const response = await fetch(url, {
     method: 'POST',
