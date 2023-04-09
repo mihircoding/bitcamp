@@ -90,13 +90,12 @@ def read(image, workbook):
             else:
                 price = int(i[:dec]) + (int(i[dec + 1:]))/100
             if int((i[dec + 1:]))/100 == 0:
-                worksheet.write(row, 2, price, cost0)
+                worksheet.write(row, 3, price, cost0)
             elif int(int((i[dec + 1:]))/100) % 10 == 0:
-                worksheet.write(row, 2, price, cost1)
+                worksheet.write(row, 3, price, cost1)
             else:
-                worksheet.write(row, 2, price, cost)
-            worksheet.write(row, 0, item_number)
-            worksheet.write(row, 1, item)
+                worksheet.write(row, 3, price, cost)
+            worksheet.write(row, 0, item)
             item = ''
             item_number += 1
             row += 1
@@ -104,13 +103,19 @@ def read(image, workbook):
 #Initializes the excel sheet that holds the scanned data
 def data_init(workbook):
     worksheet = workbook.add_worksheet()
-    worksheet.write('A1', 'Item #')
-    worksheet.write('B1', 'Item Name')
-    worksheet.write('C1', 'Price')
-    worksheet.write('D1', 'Item Type') #user input?
+    worksheet.write('A1', 'Item Name')
+    worksheet.write('B1', 'Quantity')
+    worksheet.write('C1', 'Cost Per Item')
+    worksheet.write('D1', 'Total Price')
     return worksheet
 
-@app.route('/', m)
+
+def gen_dict(df, title):
+    classes = 'items'
+    return {'title': title,
+            'table': df.to_html(classes = classes)}
+
+@app.route('/data')
 def display_data():
     df = pd.read_excel(r'C:/Users/sshma/BitCamp/bitcamp/data/data.xlsx', sheet_name = ['Sheet1', 'Sheet2', 'Sheet3'])
     first = df.get('Sheet1')
@@ -118,25 +123,31 @@ def display_data():
     last = df.get('Sheet3')
     frames = [first, second, last]
     result = pd.concat(frames)
-    new_column = []
-    for i in range(len(result)):
-        new_column.append(i+1)
-    result['Item #'] = new_column
-    return render_template("test.html", table = result.to_html())
+    print(result)
+    return result
+    
     
 #Deletes all the photos taken
 def finish():
     for image in os.listdir(directory):
         os.remove(os.path.join(directory, image))
         
+@app.route('/')
 def main():
+    result = display_data()
+    d = {'df1': gen_dict(result, 'Scanned Item Details')}
+    return render_template('test.html', **d)
+
+    
+def rest():
     take_picture()
     images = display()
     for image in images:
         read(image, workbook)
     display_data()
     workbook.close()
-    
+
+
 @app.route("/data")
 def home():
     return render_template('index.html')
