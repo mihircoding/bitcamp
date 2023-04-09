@@ -6,18 +6,19 @@
     <link rel="stylesheet" href="logintemplate.css">
   </head>
   <body>
-    <h1>Enter New Purchase</h1>
+   
     <div class="container">
       <form action="process-login.php" method="post">
-        <label for="purchase"><b>Purchase Name</b></label>
+        <h1>Enter New Purchase</h1>
+
         <input type="text" placeholder="Enter Name of Purchase" name="purchase" required>
 
-        <label for="amount"><b>Purchase Amount</b></label>
+
         <input type="text" placeholder="Enter Purchase Amount" name="amount" required>
 
         <button type="button" onclick="purchaseAdded()">Add Purchase</button>
         <div id="tab-content" style="display: none;">
-            <div class = "container">
+            <div class = "container2">
                 <h2>Purchase Added</h2>
             </div>
         </div>
@@ -36,11 +37,3 @@
   </body>
 </html>
 
-    <script>
-        function purchaseAdded() {
-            var tabContent = document.getElementById("tab-content");
-            tabContent.style.display = "block";
-        }
-    </script>
-  </body>
-</html>

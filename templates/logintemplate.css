@@ -1,5 +1,6 @@
 /* Styling for the login form */
 body {
+    padding: 200px;
     background-color: #E7F3EB;
     font-family: Arial, sans-serif;
   }
@@ -9,6 +10,11 @@ body {
     margin-top: 50px;
   }
   h2 {
+    text-align: center;
+    color: #4CAF50;
+  }
+
+  h3 {
     text-align: center;
     color: #4CAF50;
   }
@@ -40,7 +46,29 @@ body {
     opacity: 0.8;
   }
   .container {
-    padding: 16px;
+    padding: 50px;
+    background-color: #FFF;
+    margin: auto; 
+    text-align: center; 
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgb(34, 98, 4);
+    width: 50%;
+    height: 400px;
+  } 
+
+  .container2 {
+    background-color: #FFF;
+    margin: auto; 
+    text-align: center; 
+    padding-bottom: 3px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgb(34, 98, 4);
+    width: 40%;
+    height: 30px;
+  }
+
+  .container3 {
+    padding: 30px;
     background-color: #FFF;
     margin: auto; 
     text-align: center; 
@@ -69,3 +97,11 @@ body {
   .tab-active {
     display: block;
   }
+
+  .header {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
