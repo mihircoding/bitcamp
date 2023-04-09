@@ -124,7 +124,6 @@ def display_data():
     result = pd.concat(frames)
     return result
     
-    
 #Deletes all the photos taken
 def finish():
     for image in os.listdir(directory):
@@ -136,7 +135,18 @@ def main():
     d = {'df1': gen_dict(result, 'Scanned Item Details')}
     return render_template('test.html', **d)
 
+@app.route("/test")
+def test():
+    return render_template('test.html')
+
+if __name__ == '__main__':
+    app.run(debug = True)
     
+@app.route("/show-recent")
+def getRecent():
+    recent = {}
+    result = display_data()
+    result['']
 def rest():
     take_picture()
     images = display()
@@ -144,10 +154,3 @@ def rest():
         read(image, workbook)
     display_data()
     workbook.close()
-
-@app.route("/test")
-def test():
-    return render_template('test.html')
-
-if __name__ == '__main__':
-    app.run(debug = True)
