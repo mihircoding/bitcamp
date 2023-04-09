@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Finance Login</title>
+    <link rel="stylesheet" href="logintemplate.css">
+  </head>
+  <body>
+    <h1>Forgot Password?</h1>
+    <div class="container">
+      <form action="process-login.php" method="post">
+        <button type="button" onclick="reveal()">Change Username</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+                <input type="text" placeholder="Enter New Username" name="username" >
+                <input type="text" placeholder="Enter Current Password" name="username" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="reveal()">Change Password</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+              <input type="text" placeholder="Enter New Password" name="password">
+              <input type="text" placeholder="Enter Current Password" name="password" required>
+            </div>
+        </div>
+        
+        <button type="button" onclick="reveal()">Change Email</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+              <input type="text" placeholder="Enter New Email" name="email" >
+              <input type="text" placeholder="Enter Current Password" name="email" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="reveal()">Change Budget Amount</button>
+        <div id="tab-content" style="display: none;">
+            <div class = "container">
+              <input type="text" placeholder="Enter New Budget Amount" name="amount">
+              <input type="text" placeholder="Enter Current Password" name="amount" required>
+            </div>
+        </div>
+        
+        <button type="submit" formaction="home.html">Submit Changes</button>
+      </form>
+    </div>
+
+    <script>
+        function reveal() {
+            var tabContent = document.getElementById("tab-content");
+            tabContent.style.display = "block";
+        }
+    </script>
+  </body>
+</html>

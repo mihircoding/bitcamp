@@ -64,7 +64,7 @@ body {
     background-color: #FFF;
     border: 1px solid #DDD;
     border-radius: 5px;
-    margin-top: 10px;
+    
   }
   .tab-active {
     display: block;
