@@ -6,7 +6,8 @@ import cv2
 from cv2 import *
 import os
 import pandas as pd
-from flask import Flask, request
+from flask import Flask, render_template
+import webbrowser
 
 app = Flask(__name__)
 
@@ -60,26 +61,6 @@ def display():
                 break
     return images
 
-#Scans all the images that was taken
-def scan(images):
-    for image in images:
-        read(image, workbook)
-        
-if(0):
-    def scan(image):
-        if (0):
-            h, w, _ = full.shape
-            full = full[int(h/5):int(h/2), 0:w]
-            full = cv2.resize(full, dsize = (800, 800), interpolation = cv2. INTER_LINEAR)
-            full = clear(full)
-            full = Image.fromarray(full, "RGB")
-        full = test(full)
-
-        cv2.imshow('image',full)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-
-
 def read(image, workbook):
     worksheet = data_init(workbook)
     cost = workbook.add_format({'num_format': '$##.##'})
@@ -91,9 +72,8 @@ def read(image, workbook):
     else:
         text = text.replace('\n', ' ')
     
-    index = 0
     item_number = 1
-    row = 2
+    row = 1
     
     print(text)
     
@@ -130,8 +110,19 @@ def data_init(workbook):
     worksheet.write('D1', 'Item Type') #user input?
     return worksheet
 
+@app.route('/', m)
 def display_data():
-    print(pd.read_excel(r'C:/Users/sshma/BitCamp/bitcamp/data/data.xlsx'))
+    df = pd.read_excel(r'C:/Users/sshma/BitCamp/bitcamp/data/data.xlsx', sheet_name = ['Sheet1', 'Sheet2', 'Sheet3'])
+    first = df.get('Sheet1')
+    second = df.get('Sheet2')
+    last = df.get('Sheet3')
+    frames = [first, second, last]
+    result = pd.concat(frames)
+    new_column = []
+    for i in range(len(result)):
+        new_column.append(i+1)
+    result['Item #'] = new_column
+    return render_template("test.html", table = result.to_html())
     
 #Deletes all the photos taken
 def finish():
@@ -143,6 +134,16 @@ def main():
     images = display()
     for image in images:
         read(image, workbook)
+    display_data()
     workbook.close()
     
-main()
+@app.route("/data")
+def home():
+    return render_template('index.html')
+
+@app.route("/test")
+def test():
+    return render_template('test.html')
+
+if __name__ == '__main__':
+    app.run(debug = True)
