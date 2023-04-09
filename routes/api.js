@@ -132,8 +132,7 @@ router.post('/reset-password', async function(req, res) {
     res.redirect('/login');
   });
 
-// GET calls
-router.get('/loginAuth', async function(req, res) {
+  router.post('/loginAuth', async function(req, res) {
     var fromUsername = req.body.username;
     var fromPassword = req.body.password;
     const userExists = await users.findOne({where: {username: fromUsername,password: fromPassword}});
@@ -148,6 +147,8 @@ router.get('/loginAuth', async function(req, res) {
         return res.sendStatus(404).end();
     }
 });
+
+// GET calls
 
 router.get('/getPurchases', async function(req,res) {
     var fromEmail = req.body.email;

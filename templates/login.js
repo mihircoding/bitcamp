@@ -3,7 +3,7 @@ const url = 'http://localhost:3000/api/loginAuth';
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-
+  console.log("wefwef")
   const formData = new FormData(form);
   const body = new URLSearchParams(formData).toString();
 
@@ -16,12 +16,9 @@ form.addEventListener('submit', async (event) => {
   });
 
   if (response.status == 200) {
-    const data = await response.json();
-    console.log(data); // logs the response from the backend
+    window.location.replace("http://localhost:5500/templates/home.html");
   }
-  else if (response.status == 204){
-    alert("you have an account already");
-  } else{
+   else{
     alert("some error occured try again");
   }
 });

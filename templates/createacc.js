@@ -20,7 +20,7 @@ form.addEventListener('submit', async (event) => {
 
   if (response.status == 200) {
     accountCreated();
-
+    window.location.replace("http://localhost:5500/templates/home.html");
   }
   else if (response.status == 204){
     alert("you have an account already");
