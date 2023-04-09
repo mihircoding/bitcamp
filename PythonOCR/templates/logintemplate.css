@@ -69,3 +69,38 @@ body {
   .tab-active {
     display: block;
   }
+
+  .form-container .cancel {
+  background-color: red;
+  }
+
+  .form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+  }
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    left: 28px;
+    width: 20%;
+  }
+
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 15%;
+    right: 40%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }

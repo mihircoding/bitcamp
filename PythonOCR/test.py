@@ -7,7 +7,6 @@ from cv2 import *
 import os
 import pandas as pd
 from flask import Flask, render_template
-import webbrowser
 
 app = Flask(__name__)
 
@@ -111,9 +110,8 @@ def data_init(workbook):
 
 
 def gen_dict(df, title):
-    classes = 'items'
     return {'title': title,
-            'table': df.to_html(classes = classes)}
+            'table': df.to_html(classes = 'itemTable')}
 
 @app.route('/data')
 def display_data():
@@ -123,7 +121,6 @@ def display_data():
     last = df.get('Sheet3')
     frames = [first, second, last]
     result = pd.concat(frames)
-    print(result)
     return result
     
     
@@ -146,11 +143,6 @@ def rest():
         read(image, workbook)
     display_data()
     workbook.close()
-
-
-@app.route("/data")
-def home():
-    return render_template('index.html')
 
 @app.route("/test")
 def test():

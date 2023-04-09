@@ -8,7 +8,7 @@ body {
     position: relative;
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
 }
 
@@ -27,15 +27,12 @@ h2 {
     color: #4CAF50;
 }
 
-  
-
 .options {
     background-color: grey;
     color: white;
     position: absolute;
-    z-index: 999;
-    top: 0; 
-    left: 0;
+    top: 40%; 
+    left: 5%;
     border-radius: 15px;
 }
 
@@ -61,13 +58,13 @@ h2 {
   }
 
   .options-bar {
-    background-color: #eee;
+    background-color:  #E7F3EB;
     padding: 20px;
     position: absolute;
     margin: auto;
     top: 0;
     left: -300px;
-    width: 200px;
+    width: 20%;
     height: 100%;
     transition: left 0.3s ease-in-out;
 }
@@ -75,4 +72,10 @@ h2 {
 .show-options {
     left: 0;
     transition: right 0.3s ease-in-out;
+}
+
+#close {
+    position: absolute;
+    bottom: 10%;
+    width: 80%;
 }
