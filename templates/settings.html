@@ -24,7 +24,6 @@
               <input type="text" placeholder="Enter Current Password" name="password" required>
             </div>
         </div>
-        
         <button type="button" onclick="reveal()">Change Email</button>
         <div id="tab-content" style="display: none;">
             <div class = "container">
@@ -40,10 +39,18 @@
               <input type="text" placeholder="Enter Current Password" name="amount" required>
             </div>
         </div>
-        
         <button type="submit" formaction="home.html">Submit Changes</button>
       </form>
     </div>
+
+    <script>
+        function reveal() {
+            var tabContent = document.getElementById("tab-content");
+            tabContent.style.display = "block";
+        }
+    </script>
+  </body>
+</html>
 
     <script>
         function reveal() {

@@ -9,9 +9,9 @@
   <body>
     <h1>Create New Account</h1>
     <div class="container">
-      <form action="process-login.php" method="post">
+      <form action="/api/signupsubmit" method="post">
         <label for="name"><b>Name</b></label>
-        
+
         <input type="text" id="exists" placeholder="Enter Name" name="name" required>
 
         <label for="email"><b>Email</b></label>
@@ -23,10 +23,10 @@
         <label for="password"><b>New Password</b></label>
         <input type="password" id="exists" placeholder="Enter Password" name="password" required>
 
-        <label for="starting-budget"><b>Enter Starting Budget</b></label>
-        <input type="text" id="exists" placeholder="Enter Starting Budget" name="starting-budget" required>
-        
-        <button type="button" onclick="accountCreated()">Account Created</button>
+        <label for="budget"><b>Enter Starting Budget</b></label>
+        <input type="text" id="exists" placeholder="Enter Starting Budget" name="budget" required>
+
+        <button type="submit" id="submitbutton" type="button">Submit</button>
         <div id="tab-content" style="display: none;">
             <div class = "container">
                 <h2>Account Created</h2>
@@ -38,14 +38,7 @@
       </div>
     </div>
 
-    <script>
-      function accountCreated() {
-          var tabContent = document.getElementById("tab-content");
-          var exists = document.getElementById("exists");
-          if (exists.value) 
-            tabContent.style.display = "block";
-      }
+    <script src = "createacc.js">
   </script>
   </body>
 </html>
-

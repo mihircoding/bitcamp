@@ -70,15 +70,15 @@ def read(image, workbook):
         print("Unable to Read Text. Please retake this image")
     else:
         text = text.replace('\n', ' ')
-    
+
     item_number = 1
     row = 1
-    
+
     print(text)
-    
+
     split = text.split()
     item = ''
-    
+
     for i in split:
         if i.isalpha() or not "." in i:
             item += i + ' '
@@ -123,20 +123,20 @@ def display_data():
     frames = [first, second, last]
     result = pd.concat(frames)
     return result
-    
-    
+
+
 #Deletes all the photos taken
 def finish():
     for image in os.listdir(directory):
         os.remove(os.path.join(directory, image))
-        
+
 @app.route('/')
 def main():
     result = display_data()
     d = {'df1': gen_dict(result, 'Scanned Item Details')}
     return render_template('test.html', **d)
 
-    
+
 def rest():
     take_picture()
     images = display()
