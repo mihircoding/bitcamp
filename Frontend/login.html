@@ -65,7 +65,7 @@
   <body>
     <h1>Finance Login</h1>
     <div class="container">
-      <form action="process-login.php" method="post">
+      <form action="/api/loginAuth" id="login" method="post">
         <label for="username"><b>Enter Username or Email</b></label>
         <input type="text" placeholder="Enter Username or Email" name="username" required>
 
@@ -78,6 +78,7 @@
         <span class="psw"><a href="createacc.html">Sign Up</a> &emsp; &emsp; </a><a href="forgotpass.html">Forgot password?</a></span>
       </div>
     </div>
+    <script src="login.js"></script>
   </body>
 </html>
 

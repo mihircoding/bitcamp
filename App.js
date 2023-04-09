@@ -2,7 +2,7 @@ const express = require('express') //Set up our main function variable for calli
 //Call body-parser for POST data handling
 const bodyParser = require("body-parser");
 const apiRouter = require("./routes/api");
-const { sequelize } = require('./db');
+const { sequelize, users, costs } = require('./db');
 
 const app = express();
 
@@ -20,6 +20,13 @@ app.use(express.static('public'))
 
 
 app.use("/api", apiRouter);
+
+costs.belongsTo(users, {
+  foreignKey: {
+    name: 'email'
+  }
+});
+
 
 sequelize.sync();
 

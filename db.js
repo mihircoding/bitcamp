@@ -1,4 +1,5 @@
 // For secure connection to CockroachDB
+const { SERVFAIL } = require('dns');
 const fs = require('fs');
 const Sequelize = require("sequelize-cockroachdb");
 
@@ -45,5 +46,47 @@ let sequelize = new Sequelize({
         allowNull: false,
     },
   });
+  
+  const costs = sequelize.define('costs',{
+    cost: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+    },
+    typeofcost: {
+        type: Sequelize.TEXT,
+        allowNull: true
+    },
+    location: {
+        type: Sequelize.TEXT,
+        allowNull: true
+    },
+    numtimesbought: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1
+    },
+  });
 
-  module.exports = {sequelize, users}
+  
+const PasswordReset = sequelize.define('passwordReset', {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    token: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    expiresAt: {
+      type: Sequelize.DATE,
+      allowNull: false
+    }
+  });
+
+
+  module.exports = {sequelize, users, costs, PasswordReset}

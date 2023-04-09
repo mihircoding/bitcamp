@@ -65,12 +65,12 @@
   <body>
     <h1>Create New Account</h1>
     <div class="container">
-      <form action="process-login.php" method="post">
+      <form name="signup" id="signupform" action="/api/submit" method="post">
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="Enter Name" name="name" required>
 
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="email" placeholder="Enter Email" name="email" required>
 
         <label for="username"><b>New Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>
@@ -78,16 +78,17 @@
         <label for="password"><b>New Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
-        <label for="starting-budget"><b>Enter Starting Budget</b></label>
-        <input type="text" placeholder="Enter Starting Budget" name="starting-budget" required>
+        <label for="budget"><b>Enter Starting Budget</b></label>
+        <input type="number" placeholder="Enter Starting Budget" name="budget" required>
         <!-- 
         <button type="submit">Create Account</button> -->
-        <button type="submit" formaction="login.html">Create New Account</button>
+        <button name="signupSubmit" type="submit" formaction="login.html">Create New Account</button>
       </form>
       <div class="text"></div>
         <span class="psw"><a href="login.html">Already have an account?</a></a></span>
       </div>
     </div>
+    <script src="createacc.js"></script>
   </body>
 </html>
 
