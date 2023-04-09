@@ -1,0 +1,82 @@
+.itemTable {
+    right: 45%;
+    text-align: center; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+.form-container input[type=text], input[type = number] {
+    width: 80%;
+    text-align: center;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    background: #f1f1f1;
+  }
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  .form-container .cancel {
+    background-color: red;
+    }
+  .form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+  }
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 38%;
+    width: 20%;
+  } 
+  .form-popup {
+    display: none;
+    position: fixed;
+    background-color: #FFF;
+    bottom: 15%;
+    right: 33%;
+    height: 75%;
+    width: 30%;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 15px;
+    padding-bottom: 5px;
+    z-index: 9;
+  }
+  .form-container {
+    padding: 4px;
+
+    text-align: center;
+  }
+  .container {
+    padding: 4px;
+    background-color: #FFF;
+    text-align: center; 
+    border-radius: 15px;
+    right: 40%;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    width: 50%;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #4CAF50;
+  }
+  h2 {
+    text-align: center;
+    color: #4CAF50;
+  }
+  body {
+    background-color: #E7F3EB;
+    font-family: Arial, sans-serif;
+  }
